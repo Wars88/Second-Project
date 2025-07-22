@@ -24,22 +24,23 @@ namespace Lobby
 
         public override void Preparing()
         {
-            LobbyViewer = gameObject.GetComponentInChildren<LobbyViewer>();
-            GameStartButton = gameObject.GetComponentInChildren<GameStartButton>();
-            InventoryButton = gameObject.GetComponentInChildren<InventoryButton>();
-            EquipmentButton = gameObject.GetComponentInChildren<EquipmentButton>();
-            MonsterButton = gameObject.GetComponentInChildren<MonsterButton>();
+            LobbyViewer = gameObject.GetComponentInChildren<LobbyViewer>(true);
+            GameStartButton = gameObject.GetComponentInChildren<GameStartButton>(true);
+            InventoryButton = gameObject.GetComponentInChildren<InventoryButton>(true);
+            EquipmentButton = gameObject.GetComponentInChildren<EquipmentButton>(true);
+            MonsterButton = gameObject.GetComponentInChildren<MonsterButton>(true);
 
             // ============================================================
-            InventoryViewer = gameObject.GetComponentInChildren<InventoryViewer>();
-            ItemButtons = gameObject.GetComponentsInChildren<ItemButton>();
+            InventoryViewer = gameObject.GetComponentInChildren<InventoryViewer>(true);
+            ItemButtons = gameObject.GetComponentsInChildren<ItemButton>(true);
+            for (int i = 0; i < ItemButtons.Length; i++) { ItemButtons[i].Index = i; }
 
             // ============================================================
-            ItemViewer = gameObject.GetComponentInChildren<ItemViewer>();
+            ItemViewer = gameObject.GetComponentInChildren<ItemViewer>(true);
 
             // ============================================================
-            BackButton = gameObject.GetComponentInChildren<BackButton>();
-            HomeButton = gameObject.GetComponentInChildren<HomeButton>();
+            BackButton = gameObject.GetComponentInChildren<BackButton>(true);
+            HomeButton = gameObject.GetComponentInChildren<HomeButton>(true);
         }
 
         public T[] GetUIComponents<T>() => gameObject.GetComponentsInChildren<T>();

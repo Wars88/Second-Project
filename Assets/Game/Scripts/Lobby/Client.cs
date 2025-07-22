@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace Lobby
 {
@@ -6,19 +6,27 @@ namespace Lobby
     {
         private GUIManager _guiManager;
         private InputManager _inputManager;
+        private DataManager _dataManager;
 
-        // Awake()¿¡¼­ ¸Å´ÏÀú¸¦ µî·Ï.
+        // Awake()ì—ì„œ ë§¤ë‹ˆì €ë“¤ ë“±ë¡
         private void Awake()
         {
             _guiManager = GameObject.FindAnyObjectByType<GUIManager>();
             _guiManager.SetClient(this);
             _inputManager = GameObject.FindAnyObjectByType<InputManager>();
             _inputManager.SetClient(this);
+            _dataManager = GameObject.FindAnyObjectByType<DataManager>();
+            _dataManager.SetClient(this);
+
         }
 
-        // ³ªÁß¿¡ ÄÚ·çÆ¾À¸·Î È­¸éÀüÈ¯°ú °°ÀÌ Ã³¸®ÇÒ ¼ö ÀÖµµ·Ï.
+        // ë‚˜ì¤‘ì— ì½”ë£¨í‹´ìœ¼ë¡œ í™”ë©´ì „í™˜ê³¼ ê°™ì´ ì²˜ë¦¬í•  ìˆ˜ ìˆë„ë¡.
         private void Start()
         {
+            // í™”ë©´ì „í™˜
+
+            // êµ¬ê¸€ ì¸ì¦ ë“±.
+
             {
                 var managers = GetManagers();
                 foreach (var manager in managers) { manager.Preparing(); }
@@ -29,7 +37,7 @@ namespace Lobby
                 foreach (var manager in managers) { manager.StartUp(); }
             }
 
-            // ÃÊ±âÈ­ ¹× ÁØºñÀÛ¾÷ ¿Ï·á
+            // ì´ˆê¸°í™” ë° ì¤€ë¹„ì‘ì—… ì™„ë£Œ
             StartUp();
         }
     }

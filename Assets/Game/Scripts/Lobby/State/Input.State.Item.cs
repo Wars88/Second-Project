@@ -1,4 +1,4 @@
-using Core;
+﻿using Core;
 using UnityEngine;
 
 namespace Lobby
@@ -23,6 +23,12 @@ namespace Lobby
                 var home = guiManager.HomeButton;
                 home.Show();
                 home.OnClickEvent = () => _stateMachine.PopAll();
+
+                var dataManager = Client.GetManager<DataManager>();
+                var image = viewer.GetComponentInChildren<Image>();
+                var texts = viewer.GetComponentsInChildren<Text>();
+
+                dataManager.ItemRefrash(_itemButtonIndex, image, texts);
             }
 
             void OnExit()

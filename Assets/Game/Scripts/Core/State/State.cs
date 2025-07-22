@@ -1,8 +1,8 @@
-using UnityEngine.Events;
+ï»¿using UnityEngine.Events;
 
 namespace Core
 {
-    // enumÅ¸ÀÔÀ» ¹Ş¾Æ¼­ »óÅÂ¸¦ °ü¸®ÇÏ´Â Å¬·¡½º
+    // enumíƒ€ì…ì„ ë°›ì•„ì„œ ìƒíƒœë¥¼ ê´€ë¦¬í•˜ëŠ” í´ë˜ìŠ¤
     public class State<T> where T : struct
     {
         public State(T id) { Id = id; }

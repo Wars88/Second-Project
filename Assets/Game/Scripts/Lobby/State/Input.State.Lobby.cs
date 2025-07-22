@@ -1,5 +1,6 @@
-using Core;
+ï»¿using Core;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Lobby
 {
@@ -13,7 +14,6 @@ namespace Lobby
 			{
                 Debug.Log("OnEnter Lobby State");
 
-				// ·Îºñºä¾î´Â ²ôÁö ¾ÊÀ» °Å¶ó¼­ ¿©±â X
             }
 
 			var state = new State<States>(States.Lobby);
@@ -22,7 +22,6 @@ namespace Lobby
 			_stateMachine.Add(state);
 
 			// ==================================================================
-			// ·Îºñ ¹öÆ°ÀÌº¥Æ®
 			var viewers = guiManager.GetUIComponents<Viewer>();
 
             foreach (var viewer in viewers)
@@ -34,10 +33,10 @@ namespace Lobby
             guiManager.BackButton.Hide();
             guiManager.HomeButton.Hide();
 
-            guiManager.GameStartButton.OnClickEvent = () => Debug.Log("°ÔÀÓ½ºÅ¸Æ®");
+			guiManager.GameStartButton.OnClickEvent = () => SceneManager.LoadScene("InGame");
 			guiManager.InventoryButton.OnClickEvent = () => _stateMachine.Push(States.Inventory);
-            guiManager.EquipmentButton.OnClickEvent = () => Debug.Log("Àåºñ");
-            guiManager.MonsterButton.OnClickEvent = () => Debug.Log("¸ó½ºÅÍ µµ°¨");
+            guiManager.EquipmentButton.OnClickEvent = () => Debug.Log("ìž¥ë¹„");
+            guiManager.MonsterButton.OnClickEvent = () => Debug.Log("ëª¬ìŠ¤í„°");
 
         }
     }

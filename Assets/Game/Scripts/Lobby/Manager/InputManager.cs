@@ -15,6 +15,7 @@ namespace Lobby
         }
 
         [ReadOnly][SerializeField] StateMachine<States> _stateMachine;
+        [ReadOnly][SerializeField] private int _itemButtonIndex;
 
         public override void Preparing()
         {

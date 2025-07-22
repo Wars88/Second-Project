@@ -1,4 +1,4 @@
-using Core;
+ï»¿using Core;
 using UnityEngine;
 
 namespace Lobby
@@ -10,7 +10,6 @@ namespace Lobby
             var guiManager = Client.GetManager<GUIManager>();
 
             // ==================================================================
-            // ÀÎº¥Åä¸® State Ãß°¡
 
             void OnEnter()
             {
@@ -24,9 +23,7 @@ namespace Lobby
 
                 back.OnClickEvent = () =>
                 {
-                    // È®ÀÎ¾ÈÇÑ ÀÎº¥Åä¸® ¾ÆÀÌÅÛÀÌ ÀÖ´ÂÁö °Ë»ç
-                    // ÆË¾÷ ³ëÃâ
-
+                   // ë°±ë²„íŠ¼ í´ë¦­ì´ë²¤íŠ¸ ì¬ë“±ë¡
                     _stateMachine.Pop();
                 };
 
@@ -37,8 +34,12 @@ namespace Lobby
                     _stateMachine.PopAll();
 
                 };
-            }
 
+                // ê° ì•„ì´í…œë²„íŠ¼ë“¤ì´ ìì²´ì ìœ¼ë¡œ ì´ˆê¸°í™” í•¨ìˆ˜ë¥¼ ê°€ì§€ê³  ìˆìŒ
+                var dataManager = Client.GetManager<DataManager>();
+                dataManager.ItemButtonInit(guiManager.ItemButtons);
+            }
+            
             void OnExit()
             {
                 Debug.Log("OnExit Inventory State");
@@ -62,10 +63,15 @@ namespace Lobby
             _stateMachine.Add(state);
 
             // ==================================================================
-            // item ¹öÆ°µé ÀÌº¥Æ® µî·Ï
-            foreach(var button in guiManager.ItemButtons)
+            // ê° ì•„ì´í…œ ë²„íŠ¼ë“¤ì€ ìƒíƒœë§ˆë‹¤ ë‹¤ë¥´ê²Œ ì´ë²¤íŠ¸ë¥¼ ë“±ë¡í•  í•„ìš”ê°€ ì—†ê¸°ì— onEnterì—ì„œ ë“±ë¡X
+            foreach (var button in guiManager.ItemButtons)
             {
-                button.OnClickEvent = () => _stateMachine.Push(States.Item);
+                button.OnClickEvent = () =>
+                {
+                    _itemButtonIndex = button.Index;
+
+                    _stateMachine.Push(States.Item);
+                };
             }
         }
     }

@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
@@ -12,7 +12,6 @@ public class CSVReader
     {
         var list = new List<Dictionary<string, object>>();
         TextAsset data = Resources.Load(file) as TextAsset;
-
         string[] lines = Regex.Split(data.text, LINE_SPLIT_RE);
 
         if (lines.Length <= 1) return list;
@@ -20,14 +19,14 @@ public class CSVReader
         string[] header = Regex.Split(lines[0], SPLIT_RE);
         for (int i = 1; i < lines.Length; i++)
         {
-            // °¢ ¶óÀÎº° µ¥ÀÌÅÍ, "john,1,10" µî
+            // ê° ë¼ì¸ë³„ ë°ì´í„°, "john,1,10" ë“±
             string[] values = Regex.Split(lines[i], SPLIT_RE);
             if (values.Length == 0 || values[0] == "") continue;
 
             var entry = new Dictionary<string, object>();
             for (int j = 0; j < header.Length && j < values.Length; j++)
             {
-                // °¢ Çì´õ¿¡ ÇØ´çÇÏ´Â °ª, "john", "1", "10" µî
+                // ê° í—¤ë”ì— í•´ë‹¹í•˜ëŠ” ê°’, "john", "1", "10" ë“±
                 string value = values[j];
                 value = value.TrimStart(TRIM_CHARS).TrimEnd(TRIM_CHARS).Replace("\\", "");
                 object finalvalue = value;

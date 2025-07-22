@@ -1,4 +1,4 @@
-name,description
-Amulet,평범한 아뮬렛
-Armor,평범한 아머
-Ax,평범한 도끼
+﻿Name,Path,Description
+Amulet,Sprites/Amulet,평범한 아뮬렛
+Armor,Sprites/Armor,평범한 아머
+Ax,Sprites/Ax,평범한 도끼

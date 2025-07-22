@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 
 namespace Core
@@ -23,7 +23,7 @@ namespace Core
             }
         }
 
-        // EnumÅ¸ÀÔÀÇ id, States.Lobby µî
+        // Enumíƒ€ì…ì˜ id, States.Lobby ë“±
         public void Push(T id)
         {
             if (CurrentState != null) { CurrentState.OnExit(); }
@@ -64,7 +64,7 @@ namespace Core
             CurrentState = next;
             CurrentState.OnEnter();
 
-            // ½ºÅÃ °ü¸®
+            // ìŠ¤íƒ ê´€ë¦¬
             _stack.Clear();
             _debugForStack.Clear();
 

@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 
 namespace Core
@@ -12,7 +12,7 @@ namespace Core
         {
             if (!_isStartUp) 
             { 
-                Debug.LogError("Å¬¶óÀÌ¾ğÆ®°¡ ½ÃÀÛµÇÁö ¾Ê¾Ò½À´Ï´Ù. StartUp()À» È£ÃâÇØ¾ß ÇÕ´Ï´Ù.");
+                Debug.LogError("í´ë¼ì´ì–¸íŠ¸ê°€ ì‹œì‘ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤. StartUp()ì„ í˜¸ì¶œí•´ì•¼ í•©ë‹ˆë‹¤.");
                 return;
             }
 
@@ -32,7 +32,7 @@ namespace Core
             if (manager != null) { return manager; }
             else
             {
-                Debug.LogError("¸Å´ÏÀú°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù: " + typeof(T).Name);
+                Debug.LogError("ë§¤ë‹ˆì €ê°€ ì—†ê±°ë‚˜ ë³€í™˜ ë¶ˆê°€: " + typeof(T).Name);
                 return null;
             }
         }
